@@ -1,3 +1,4 @@
-= default_watchers
+= Redmine Default Watchers Plugin
 
-Description goes here
+A redmine plugin which allows users to manage a default watchers list.
+These watchers are checked by default when creating a new issue.
