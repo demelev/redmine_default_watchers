@@ -1,5 +1,7 @@
 require 'redmine'
 
+require_dependency 'new_issue_hook_listener'
+
 Redmine::Plugin.register :redmine_default_watchers do
   name 'Redmine Default Watchers plugin'
   author 'Masatomo Nakano, Robert Gravina'
