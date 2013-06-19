@@ -2,10 +2,8 @@
 <script type="text/javascript">
   $(document).ready(function() {
     var default_watchers = [<%= @default_watchers.map(&:id).join(',') %>];
-    $("input[name='issue[watcher_user_ids][]']").each(function() {
-      if ($.inArray(parseInt($(this).attr('value')), default_watchers) != -1) {
-        $(this).attr('checked', 'checked');
-      };
+    $.each(default_watchers, function(index, watcher_id) {
+      $("input[name='issue[watcher_user_ids][]'][value="+watcher_id+"]").attr('checked', 'checked');
     });
   });
 </script>
