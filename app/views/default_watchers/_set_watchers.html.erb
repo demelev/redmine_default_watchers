@@ -1,7 +1,6 @@
-<%- @default_watchers = DefaultWatcher.find_all_by_user_id(User.current.id).map{|u| u.watcher} %>
 <script type="text/javascript">
   $(document).ready(function() {
-    var default_watchers = [<%= @default_watchers.map(&:id).join(',') %>];
+    var default_watchers = [<%= DefaultWatcher.joins(:watcher).where(:user_id => User.current.id).uniq.pluck(:watcher_id).join(',') %>];
     $.each(default_watchers, function(index, watcher_id) {
       $("input[name='issue[watcher_user_ids][]'][value="+watcher_id+"]").attr('checked', 'checked');
     });
