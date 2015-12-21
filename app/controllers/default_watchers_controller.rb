@@ -2,7 +2,7 @@ class DefaultWatchersController < ApplicationController
   unloadable
 
   def index
-    @all_active_users = User.active.find(:all, :order => "firstname")
+    @all_active_users = User.active.order(firstname: :asc)
     @default_watchers = DefaultWatcher.find_all_by_user_id(User.current.id).map{|u| u.watcher}
   end
 

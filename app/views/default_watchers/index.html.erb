@@ -3,16 +3,16 @@
 <form action='/default_watchers', method='post'>
 <%= token_tag form_authenticity_token %>
 <table class="list">
-<% @all_active_users.each do |user| %>
-  <tr class="<%= cycle 'odd', 'even' %>">
-    <td width="30px">
-      <%= check_box_tag 'watcher_ids[]', user.id, @default_watchers.include?(user) %>
-    </td>
-    <td>
-      <%=h user %>
-    </td>
-  </tr>
-<% end %>
+  <% @all_active_users.each do |user| %>
+      <tr class="<%= cycle 'odd', 'even' %>">
+        <td width="30px">
+          <%= check_box_tag 'watcher_ids[]', user.id, @default_watchers.include?(user) %>
+        </td>
+        <td>
+          <%=h user %>
+        </td>
+      </tr>
+  <% end %>
 </table>
 <%= submit_tag l(:button_submit) %>
 </form>
